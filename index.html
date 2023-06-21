@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css"/>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Maps and Sets Handson</h1>
+    <h2>Q1.
+Problem:
+You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+Your task is to remove all the duplicate occurrences of characters in the string.
+    </br>
+Input:
+abcadeecfb
+  </br>
+Output:
+abcdef
+    </h2>
+
+  <p>=> A set is a collection of items that are unique i.e no element can be repeated. 
+    Set in ES6 are ordered: elements of the set can be iterated in the insertion order. 
+    Set can store any type of value whether primitive or objects.
+  </p>
+  <pre>
+  Code:
+
+  var a = "abcadeecfb";
+
+  let b = new Set(a); // converted into set
+  b = [...b]; // converted into array
+  b = b.join(""); //converted into string
+  alert(b);
+  </pre>
+<button onclick = output1()>Click here to see the Output</button>
+  <h2>
+  Q2.
+Problem:
+You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)
+<br>
+Input:<br>
+abcadeecfb
+<br>
+<br>
+Output:<br>
+a=2
+b=2
+c=2
+d=1
+e=2
+f=1
+</h2>
+<p>=> Map is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type.
+</p>
+<ul>
+  <li><b>new Map()</b> – creates the map.</li>
+  <li><b>map.set(key, value)</b> – stores the value by the key.</li>
+  <li><b>map.get(key)</b> – returns the value by the key, undefined if key doesn’t exist in map.</li>
+  <li><b>map.has(key)</b> – returns true if the key exists, false otherwise.</li>
+  <li><b>map.delete(key)</b> – removes the element (the key/value pair) by the key.</li>
+  <li><b>map.clear()</b> – removes everything from the map.</li>
+  <li><b>map.size</b> – returns the current element count.</li>
+</ul>
+<pre>
+  Code:
+
+  function countAlphabets(str) {
+    const alphabetCount = new Map();
+
+    for (let char of str) {
+      if (alphabetCount.has(char)) {
+        alphabetCount.set(char, alphabetCount.get(char) + 1);
+      } else {
+        alphabetCount.set(char, 1);
+      }
+    }
+    for (let [char, count] of alphabetCount) {
+      console.log(`${char}= ${count}`);
+    }
+  }
+  countAlphabets("abcadeecfb");
+</pre>
+<button onclick = output2()>Click here to see the Output in Console</button>
+    <script src="./script.js"></script>
+  </body>
+</html>
